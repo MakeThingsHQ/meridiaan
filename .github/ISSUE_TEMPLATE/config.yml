@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/meridiaan/meridiaan/discussions
+    about: How to do something, how others set up their Workspace, what you would like next.
+  - name: Documentation
+    url: https://docs.meridiaan.io
+    about: Concepts, roles, plans, connecting an agent.
+  - name: Account, plan or billing
+    url: mailto:support@meridiaan.io
+    about: Anything tied to your account. Please do not post it in public.

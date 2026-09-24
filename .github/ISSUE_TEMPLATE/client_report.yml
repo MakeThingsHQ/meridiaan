@@ -1,0 +1,50 @@
+name: Client report
+description: Tell us whether a client configuration worked. "It worked" is as useful as "it did not".
+labels: ["client-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every report moves a row of the clients table from "Not yet verified" to "Verified", or gets a broken configuration fixed. Never paste your token or Workspace id.
+  - type: input
+    id: client
+    attributes:
+      label: Client and version
+      placeholder: Cursor 1.x on macOS
+    validations:
+      required: true
+  - type: dropdown
+    id: auth
+    attributes:
+      label: Authentication
+      options:
+        - OAuth
+        - Workspace token
+    validations:
+      required: true
+  - type: dropdown
+    id: method
+    attributes:
+      label: How you configured it
+      options:
+        - Copied the file from clients/ in this repository
+        - Copied the block from the Connection page
+        - One-click install link
+        - Something else (explain below)
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Did it work?
+      options:
+        - Yes, the agent sees and uses the Workspace
+        - Partly (explain below)
+        - No
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Details
+      description: What you changed to make it work, or the error you got.

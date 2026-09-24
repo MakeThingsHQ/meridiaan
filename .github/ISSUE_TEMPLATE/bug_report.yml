@@ -1,0 +1,43 @@
+name: Bug report
+description: Something in Meridiaan does not work as it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. Never paste a token, a Workspace id, or content from a private Workspace here.
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did it happen?
+      options:
+        - An agent talking to the MCP server
+        - The web app
+        - The website or the docs
+        - Sign-in, OAuth or billing
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: Client and version
+      description: Only if it happened in an agent. For example "Claude Code 2.x", "Cursor 1.x".
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got instead. The exact error message helps most.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. ...
+        2. ...
+  - type: input
+    id: when
+    attributes:
+      label: When
+      description: Date and approximate time, with your time zone. It lets us find it in the logs.
