@@ -37,29 +37,35 @@ Every new Agent session starts from zero. You re-explain the architecture, the d
 
 | | What it does | |
 |---|---|---|
-| **Any Agent, Any Provider** | Claude Code, Codex, Cursor, VS Code, a model running on your own machine: any Agent that speaks MCP, from any provider, works on the same knowledge, side by side. | Available |
-| **Multiplayer Knowledge** | Every Workspace is multi-Agent and multi-user from the start. Your teammates and their Agents read and write the same knowledge, and roles decide who can write. | Available |
-| **OAuth Sign-In** | Connect an Agent with just the Workspace address and a confirmation in your browser. No token to copy, nothing secret in your configuration files. | Available |
-| **Signals** | Agents tell each other what they are working on and share the problems they run into, so they coordinate without you relaying messages between them. | Available |
-| **Agent Sessions** | Every call an Agent made, session by session, with what it read and what it changed. | Available |
-| **Versioned Commands** | Your team's commands live in the Workspace and reach every Agent. Every version is kept. | Available |
-| **Versioned Skills** | Guidance an Agent loads when the situation calls for it, versioned the same way. | Available |
-| **Versioned Loops** | Recurring rounds of work, defined once and run by any Agent, versioned the same way. | Available |
-| **Knowledge Versioning** | The history of every Document: earlier versions kept and compared, including when a person and an Agent write at the same time. | Coming soon |
-| **Fast Import** | Bring in what you already have in your sources, such as Obsidian or Notion, as Documents in one pass, instead of rebuilding it by hand. | Coming soon |
-| **Ticketing for Humans** | An Agent in a long run that needs your decision opens a ticket instead of stopping, and you answer when you can. | Coming soon |
+| **Any Agent, Any Provider** | Claude Code, Codex, Cursor, VS Code, a model running on your own machine: any Agent that speaks MCP, from any provider, works on the same knowledge, side by side. | ✅ Available |
+| **Multiplayer Knowledge** | Every Workspace is multi-Agent and multi-user from the start. Your teammates and their Agents read and write the same knowledge, and roles decide who can write. | ✅ Available |
+| **Persona** | Your personal space for your best practices and preferences. Connect it next to any Workspace and it shapes how you, and your Agents, work on the project. | ✅ Available |
+| **OAuth Sign-In** | Connect an Agent with just the Workspace address and a confirmation in your browser. No token to copy, nothing secret in your configuration files. | ✅ Available |
+| **Signals** | Agents tell each other what they are working on and share the problems they run into, so they coordinate without you relaying messages between them. | ✅ Available |
+| **Agent Sessions** | Every call an Agent made, session by session, with what it read and what it changed. | ✅ Available |
+| **Versioned Commands** | Your team's commands live in the Workspace and reach every Agent. Every version is kept. | ✅ Available |
+| **Versioned Skills** | Guidance an Agent loads when the situation calls for it, versioned the same way. | ✅ Available |
+| **Versioned Loops** | Recurring rounds of work, defined once and run by any Agent, versioned the same way. | ✅ Available |
+| **Knowledge Versioning** | The history of every Document: earlier versions kept and compared, including when a person and an Agent write at the same time. | 🚧 In roadmap |
+| **Knowledge Import** | Bring in what you already have in your sources, such as Obsidian or Notion, as Documents in one pass, instead of rebuilding it by hand. | 🚧 In roadmap |
+| **Ticketing for Humans** | An Agent in a long run that needs your decision opens a ticket instead of stopping, and you answer when you can. | 🚧 In roadmap |
 
 You stay in the loop: Meridiaan is where you and your Agents build together, not a place to hand the work off and watch.
 
 ## How it works
 
 ```
-Workspace            one project, one MCP address
- └── Collections     Decisions, Features, Open Points, Wiki, Todos... each with statuses and instructions
-      └── Documents  title, summary, status, body, links to other Documents
+Organization             your team, its plan and its seats
+ ├── Persona             one per person: your best practices and preferences, next to every Workspace
+ └── Workspace           one project, one MCP address
+      ├── Collections    Decisions, Features, Open Points, Wiki, Todos... each with statuses and instructions
+      │    └── Documents title, summary, status, body, links to other Documents
+      ├── Commands       your team's commands, invoked by name, versioned
+      ├── Skills         guidance an Agent loads when it applies, versioned
+      └── Loops          recurring rounds of work, versioned
 ```
 
-An Agent connected to a Workspace can list and search Documents, read them in full, and, if its role allows, create and update them. The Owner's Agent can also shape the Workspace: open Collections and write their instructions. The full list is in [the tools page](https://docs.meridiaan.io/tools.md).
+An Agent connected to a Workspace can list and search Documents, read them in full, and, if its role allows, create and update them. The Owner's Agent can also shape the Workspace: open Collections and write their instructions. The full list is in [the tools page](https://docs.meridiaan.io/tools.md). Commands, Skills and Loops reach every Agent connected to the Workspace, and your Persona brings your own way of working into every Workspace you use.
 
 ## The two-session test
 
