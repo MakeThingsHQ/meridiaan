@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Question or idea
-    url: https://github.com/meridiaan/meridiaan/discussions
+    url: https://github.com/MakeThingsHQ/meridiaan/discussions
     about: How to do something, how others set up their Workspace, what you would like next.
   - name: Documentation
     url: https://docs.meridiaan.io
