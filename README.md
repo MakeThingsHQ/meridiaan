@@ -1,8 +1,22 @@
+<div align="center">
+
+<img src="assets/logo.png" alt="Meridiaan logo" width="96" height="96">
+
 # Meridiaan
 
-**Project memory for AI agents.** One knowledge base per project, shared by your whole team and every agent you use, read and kept up to date by the agents themselves over MCP.
+**Project memory for AI agents.**
 
-[Website](https://meridiaan.io) · [Docs](https://docs.meridiaan.io) · [Connect a client](clients/) · [Workspace templates](templates/) · [Discussions](../../discussions)
+One knowledge base per project, shared by your whole team and every agent you use,<br>
+read and kept up to date by the agents themselves over MCP.
+
+[Website](https://meridiaan.io?ref=github) · [Docs](https://docs.meridiaan.io) · [Connect a client](clients/) · [Templates](templates/) · [Changelog](CHANGELOG.md) · [Discussions](../../discussions)
+
+[![MCP: Streamable HTTP](https://img.shields.io/badge/MCP-Streamable%20HTTP-507CC4?style=flat-square)](clients/)
+[![Auth: OAuth 2.1](https://img.shields.io/badge/auth-OAuth%202.1-DF7F9F?style=flat-square)](clients/README.md)
+[![Docs](https://img.shields.io/badge/docs-docs.meridiaan.io-E9602E?style=flat-square)](https://docs.meridiaan.io)
+[![License: MIT](https://img.shields.io/badge/license-MIT-555555?style=flat-square)](LICENSE)
+
+</div>
 
 ---
 
@@ -29,9 +43,32 @@ Workspace            one project, one MCP address
 
 An agent connected to a Workspace can list and search Documents, read them in full, and, if its role allows, create and update them. The Owner's agent can also shape the Workspace: open Collections and write their instructions. The full list is in [the tools page](https://docs.meridiaan.io/tools.md).
 
+## The two-session test
+
+Tell one agent a decision. Ask a different session, or a different agent, why it was taken. The second one was never told.
+
+```mermaid
+sequenceDiagram
+    actor You
+    participant A as Session 1<br/>agent A
+    participant W as Meridiaan<br/>Workspace
+    participant B as Session 2<br/>agent B
+
+    You->>A: Record this decision, with the reason<br/>and what it rules out
+    A->>W: Read how the Workspace is organised
+    A->>W: Write a Document in Decisions
+    Note over A: Session closed
+    You->>B: Where do we store uploaded files,<br/>and why not in Postgres?
+    B->>W: Search the Workspace
+    W-->>B: The Decision, with its reason
+    B-->>You: The answer, and the alternative that was ruled out
+```
+
+Five minutes, with prompts to paste: [`examples/two-session-test.md`](examples/two-session-test.md).
+
 ## Quickstart
 
-1. **Create a Workspace** at [meridiaan.io](https://meridiaan.io).
+1. **Create a Workspace** at [meridiaan.io](https://meridiaan.io?ref=github).
 2. **Connect your agent.** Every Workspace has its own address:
 
    ```
@@ -40,7 +77,28 @@ An agent connected to a Workspace can list and search Documents, read them in fu
 
    Authenticate with **OAuth** (the client only needs the address, then opens a browser to confirm) or with the **Workspace token** from the Connection page, sent as `Authorization: Bearer <token>`. Ready-made configurations for each client are in [`clients/`](clients/).
 3. **Let the agent set it up.** On an empty Workspace the Owner's agent is guided to ask what you are building and open the right Collections. Or start from a [template](templates/).
-4. **See it work.** Follow the [two-session test](examples/two-session-test.md): tell one agent a decision, then ask a different session or a different agent why it was taken.
+4. **See it work.** Run [the two-session test](examples/two-session-test.md) above.
+
+## Clients
+
+Anything that speaks MCP over Streamable HTTP can connect. These are the clients with a ready-made configuration, and what we have actually checked:
+
+| Client | Status |
+|---|---|
+| [Claude Code](clients/claude-code.md) | Verified |
+| [Claude Desktop and claude.ai](clients/claude-desktop.md) | Verified |
+| [Codex CLI](clients/codex.md) | Connection verified, this exact block not yet |
+| [Cursor](clients/cursor.md) | Not yet verified |
+| [VS Code](clients/vscode.md) | Not yet verified |
+| [GitHub Copilot CLI](clients/copilot-cli.md) | Not yet verified |
+| [opencode](clients/opencode.md) | Not yet verified |
+| [Antigravity](clients/antigravity.md) | Not yet verified |
+| [LM Studio](clients/lm-studio.md) | Not yet verified |
+| [Python](clients/python.md) | Not yet verified |
+| [LangChain and LangGraph](clients/langchain.md) | Not yet verified |
+| [Anything else](clients/generic.md) | |
+
+"Not yet verified" means the configuration follows the client's documented format but has not been run against the real client with the current address. Tried one? A [client report](../../issues/new?template=client_report.yml) moves the row to "Verified" for everyone. The Connection page of each Workspace also offers one-click install links for the clients that accept them.
 
 ## Repository contents
 
@@ -51,7 +109,7 @@ An agent connected to a Workspace can list and search Documents, read them in fu
 | [`examples/`](examples/) | Prompts to try: the two-session test, importing your existing instructions files |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed in the service |
 
-The Meridiaan service itself is not open source. This repository holds everything around it that is useful in the open: configurations, templates, examples, and the public place to ask questions and report problems.
+The Meridiaan service itself is not open source. This repository holds everything around it that is useful in the open: configurations, templates, examples, and the public place to ask questions and report problems. Its contents are released under the [MIT license](LICENSE), which covers this repository and not the service.
 
 ## Help and feedback
 
