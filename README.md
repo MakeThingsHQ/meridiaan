@@ -43,6 +43,7 @@ Every new Agent session starts from zero. You re-explain the architecture, the d
 | **Versioned Skills** | Guidance an Agent loads when the situation calls for it, versioned the same way. | Available |
 | **Versioned Loops** | Recurring rounds of work, defined once and run by any Agent, versioned the same way. | Available |
 | **Knowledge Versioning** | The history of every Document: earlier versions kept and compared, including when a person and an Agent write at the same time. | Coming soon |
+| **Fast Import** | Bring in what you already have in your sources, such as Obsidian or Notion, as Documents in one pass, instead of rebuilding it by hand. | Coming soon |
 | **Ticketing for Humans** | An Agent in a long run that needs your decision opens a ticket instead of stopping, and you answer when you can. | Coming soon |
 
 You stay in the loop: Meridiaan is where you and your Agents build together, not a place to hand the work off and watch.
