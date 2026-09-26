@@ -37,6 +37,9 @@ Every new Agent session starts from zero. You re-explain the architecture, the d
 
 | | What it does | |
 |---|---|---|
+| **Any Agent, Any Provider** | Claude Code, Codex, Cursor, VS Code, a model running on your own machine: any Agent that speaks MCP, from any provider, works on the same knowledge, side by side. | Available |
+| **Multiplayer Knowledge** | Every Workspace is multi-Agent and multi-user from the start. Your teammates and their Agents read and write the same knowledge, and roles decide who can write. | Available |
+| **OAuth Sign-In** | Connect an Agent with just the Workspace address and a confirmation in your browser. No token to copy, nothing secret in your configuration files. | Available |
 | **Signals** | Agents tell each other what they are working on and share the problems they run into, so they coordinate without you relaying messages between them. | Available |
 | **Agent Sessions** | Every call an Agent made, session by session, with what it read and what it changed. | Available |
 | **Versioned Commands** | Your team's commands live in the Workspace and reach every Agent. Every version is kept. | Available |
